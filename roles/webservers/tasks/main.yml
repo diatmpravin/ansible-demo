@@ -1,0 +1,10 @@
+- name: "Install Apache"
+  apt: name=apache2 state=present
+  sudo: yes
+
+- name: 3. "start Apache"
+  service: name=apache2 state=running enabled=yes
+  sudo: yes
+
+- name: 4. "install Hello World PHP script"
+  copy: src=index.php dest=/var/www/index.php mode=0664
